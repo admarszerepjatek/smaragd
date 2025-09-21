@@ -6,22 +6,22 @@
   <title>Smaragd – LARP ismertető (PDF) – jelentkezés: admarszerepjatek@gmail.com</title>
   <meta name="description" content="Smaragd LARP ismertető. Jelentkezés: admarszerepjatek@gmail.com">
   <style>
-    :root { --mail-offset: 190px; } /* ~5 cm ≈ 190 px */
+    :root { --mail-offset: 5cm; } /* ha kell, itt állítsd a vízszintes eltolást */
 
     html, body { height:100%; margin:0; }
-    .viewer{
+    .viewer {
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
-      z-index: 0; /* legyen a háttérben */
     }
+
     .mailbtn{
       position: fixed;
       top: 12px;
-      right: calc(12px + var(--mail-offset));
-      z-index: 9999; /* biztosan az iframe fölött */
+      right: calc(12px + var(--mail-offset)); /* 5 cm-rel beljebb a jobb szélről */
+      z-index: 1000;
       padding: .5rem .8rem;
       border-radius: 10px;
       border: 1px solid #0a58ca;
@@ -31,25 +31,26 @@
       text-decoration: none;
       box-shadow: 0 2px 10px rgba(0,0,0,.15);
     }
-    .mailbtn:hover{ background:#0b5ed7; }
+    .mailbtn:hover { background:#0b5ed7; }
 
+    /* Mobilon rakjuk le alulra, hogy ne lógjon be */
     @media (max-width: 720px){
-      .mailbtn{ top:auto; bottom:12px; right:12px; }
+      .mailbtn { top: auto; bottom: 12px; right: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- PDF néző -->
+  <!-- Lebegő jelentkezés gomb -->
+<a class="mailbtn"
+   href="mailto:admarszerepjatek@gmail.com?subject=%C3%89rdekl%C5%91d%C3%A9s%20Smaragd%20LARP%20%C3%BCgyben">
+  Érdeklődés emailben
+</a>
+
+  <!-- PDF néző – a fájlnevet írd át, ha nem pontosan ez -->
   <iframe class="viewer"
           src="Smaragd.pdf#toolbar=1&navpanes=0"
           title="Smaragd LARP ismertető (PDF)"></iframe>
-
-  <!-- Gomb: tedd az iframe UTÁN, hogy felül legyen -->
-  <a class="mailbtn"
-     href="mailto:admarszerepjatek@gmail.com?subject=%C3%89rdekl%C5%91d%C3%A9s%20Smaragd%20LARP%20%C3%BCgyben">
-    Érdeklődés emailben
-  </a>
 
   <noscript>
     <p style="padding:1rem">A PDF megtekintéséhez
